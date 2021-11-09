@@ -4,19 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>❤️</title>
 </head>
 <body>
     <div id="embedded_messenger">
         <header id="message_header" onclick="Botkit.toggle()">ICETRAN BOT</header>
-        <iframe  id="botkit_client" src="https://bot-icetran.herokuapp.com/chat.html"></iframe>
+        <iframe  id="botkit_client" src="http://localhost:3000/chat.html"></iframe>
     </div>
-    <script src="https://bot-icetran.herokuapp.com/embed.js"></script>
+    <script src="http://localhost:3000/embed.js"></script>
     <script>
+        // Develpoment :
+        // http://localhost:3000/  <- Offline Test Versions
+        // https://bot-icetran.herokuapp.com/   <- Online Test Versions
+        // -----------------------------------------------------------------
+        // Production : Not yet
     var options = {};
     Botkit.boot(options);
     </script>
-    <link rel="stylesheet" href="https://bot-icetran.herokuapp.com/css/embed.css" />
+    <link rel="stylesheet" href="http://localhost:3000/css/embed.css" />
     
     
 </body>
