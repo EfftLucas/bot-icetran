@@ -1,10 +1,10 @@
-# Botkit Starter Kit
+# ICETRAN AULA-REMOTA BOT
 
-This is a Botkit starter kit for web, created with the [Yeoman generator](https://github.com/howdyai/botkit/tree/master/packages/generator-botkit#readme).
+Esse é o repositorio do ICETRAN AULA-REMOTA BOT
 
-To complete the configuration of this bot, make sure to update the included `.env` file with your platform tokens and credentials.
+Para completar a instalação do BOT não esqueça de preencher o `.env` com as credenciais 
 
 [Botkit Docs](https://botkit.ai/docs/v4)
 
-This bot is powered by [a folder full of modules](https://botkit.ai/docs/v4/core.html#organize-your-bot-code). 
-Edit the samples, and add your own in the [features/](features/) folder.
+Esse BOT foi feito utilizando BotKit(https://botkit.ai)
+
