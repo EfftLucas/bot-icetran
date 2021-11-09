@@ -6,5 +6,5 @@ Para completar a instalação do BOT não esqueça de preencher o `.env` com as 
 
 [Botkit Docs](https://botkit.ai/docs/v4)
 
-Esse BOT foi feito utilizando BotKit(https://botkit.ai)
+Esse BOT foi feito utilizando [BotKit](https://botkit.ai)
 
