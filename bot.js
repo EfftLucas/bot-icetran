@@ -40,6 +40,7 @@ controller.ready(() => {
 
     // load traditional developer-created local custom feature modules
     controller.loadModules(__dirname + '/features');
+    
 
     /* catch-all that uses the CMS to trigger dialogs */
     if (controller.plugins.cms) {

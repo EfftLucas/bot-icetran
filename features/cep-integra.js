@@ -43,12 +43,36 @@ module.exports = function(controller) {
     controller.hears(['cep'], 'message', async(bot, message) => {
         await bot.beginDialog('cep_validadion');
     })
+    controller.hears(['icetran'], 'message', async(bot, message) => {
 
+        var reply = {
+            text: 'Logo do ICETRAN',
+            files: [
+                {
+                  url: 'https://i.imgur.com/UyiEdfe.png',
+                  image: true
+                }
+            ]
+        }
+        await bot.reply(message, reply);
+    })
+
+    
+    // Nada para ver aqui...
     controller.hears(['ARAUTO DE ODIN'], 'message', async(bot, message) => {
         await bot.reply(message,'Você foi dígno!')
         await bot.reply(message,'O Arauto invocado lhe abrirá as portas!')
-        await bot.reply(message,'POR ODIN E PARA VALHALLA!')
-        await bot.reply(message,'https://discord.gg/AXS2VhtbSw!')
+        var reply = {
+            text: 'POR ODIN E PARA VALHALLA!',
+            files: [
+                {
+                  url: 'https://i.imgur.com/yS3ILLv.png',
+                  image: true
+                }
+            ]
+        }
+        await bot.reply(message, reply);
+        await bot.reply(message,'https://discord.gg/AXS2VhtbSw')
     })
 
 
