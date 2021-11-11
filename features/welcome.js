@@ -31,19 +31,23 @@ module.exports = function(controller) {
     onboarding.say('Oie Aluno, tudo bem?');
     onboarding.addChildDialog(PROFILE_DIALOG, 'profile');
     onboarding.say({
-        text: 'Quais da minhas funções, vamos explorar hoje?',
+        text: 'Com oque eu posso lhe ajudar hoje?',
         quick_replies: [
             {
-                title: "Cursos",
-                payload: "Cursos",
+                title: "Biometria",
+                payload: "biometria",
             },
             {
-                title: "Ambiente Virtual",
-                payload: "AVA"
+                title: "Como acessar as aulas",
+                payload: "acessar aulas"
             },
             {
-                title: "Ajuda",
+                title: "Como acessar Microsoft Teams",
                 payload: "help"
+            },
+            {
+                title: "Habilitar minha Camera",
+                payload: "camera"
             },
             {
                 title: "Cep?",
