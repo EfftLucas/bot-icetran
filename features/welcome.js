@@ -63,10 +63,11 @@ controller.addDialog(onboarding);
     
 controller.hears(['hello', 'hi', 'ola', 'oi'], 'message', async(bot, message) => {
     await bot.beginDialog('onboarding');
+    console.log(message.incoming_message.channelData);
     
 });
 // Para o fluxo de qualquer dialogo e função
-controller.interrupts('help','message', async(bot, message) => {
+controller.interrupts(['help', 'ajuda'],'message', async(bot, message) => {
     bot.reply(message, 'Se você está no ICETRAN Aula-Remota, problemas com DETRAN, recomendo que entre em contato com seu CFC, aqui so consigo lhe ajudar, em como navegar na plataforma!')
     bot.reply(message, 'É so clicar em uma das opções aqui!')
 
