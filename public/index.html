@@ -39,7 +39,7 @@
                         {{#message.files}}
                           <div class="file_attachment">
                           {{#if image}}
-                            <img src="{{{url}}}" alt="{{{url}}}" />
+                            <a href="{{{url}}}" title="{{{title}}}" ><img src="{{{url}}}" alt="{{{url}}}" ></img></a>
                           {{else}}
                             <a href="{{{url}}}" title="{{{url}}}">{{{url}}}</a>
                           {{/if}}

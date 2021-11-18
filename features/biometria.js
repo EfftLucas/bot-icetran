@@ -33,15 +33,13 @@ module.exports = function(controller) {
 
     biometria.addMessage('A segunda é durante a aula, para garantir que ainda é você que está fazendo o curso ;D\nE terceira e ultima, é feita ao final do curso ao sair da sala de aula!', 'biometria_next_thread')
 
+
     biometria.before('biometria_next_thread',  async () => {
         return new Promise((resolve) => {
             // simulate some long running process
             setTimeout(resolve, 3000);
         });
-    });
-
-    
-    
+    });  
 
 
     let camera = new BotkitConversation('camera', controller);
