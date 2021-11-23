@@ -39,11 +39,11 @@ module.exports = function(controller) {
             },
             {
                 title: "Como acessar as aulas",
-                payload: "acessar aulas"
+                payload: "sala de aula"
             },
             {
                 title: "Como acessar Microsoft Teams",
-                payload: "help"
+                payload: "teams"
             },
             {
                 title: "Habilitar minha Camera",

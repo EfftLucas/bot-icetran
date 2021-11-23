@@ -1,0 +1,58 @@
+[
+    {
+      "text": "Certo! Vou ajudar a encontrar as suas aulas!",
+      "Img": false,
+      "ImgData": {
+            "url": "www.bruh.com.br",
+            "source": "www.bru.com.br"
+          }
+    },
+    {
+      "text": "Logo após fazer o seu login no site da aula remota, você será direcionado para o menu principal da sua inscrição na aula remota.",
+      "Img": false,
+      "ImgData": {
+            "url": "www.bruh.com.br",
+            "source": "www.bru.com.br"
+          }
+    },
+    {
+      "text": "No menu principal existe um calendario ali em baixo que você consegue ver suas aulas",
+      "Img": false,
+      "ImgData": {
+            "url": "www.bruh.com.br",
+            "source": "www.bru.com.br"
+          }
+    },
+    {
+      "text": "Imagem para lhe ajudar!",
+      "Img": true,
+      "ImgData": {
+            "url": "https://i.imgur.com/cwnpf2D.png",
+            "source": "https://i.imgur.com/cwnpf2D"
+          }
+    },
+    {
+      "text": "Lembrando que para acessar a sala de aula você precisa de uma conta no Microsoft Teams, para criar uma é so clicar [aqui](https://www.microsoft.com/pt-br/microsoft-teams/group-chat-software)",
+      "Img": false,
+      "ImgData": {
+            "url": "https://i.imgur.com/cwnpf2D.png",
+            "source": "https://i.imgur.com/cwnpf2D"
+          }
+    },
+    {
+      "text": "Lembrando que você tem apenas 15 minutos de tolerância para acessar a sala de aula!",
+      "Img": false,
+      "ImgData": {
+            "url": "https://i.imgur.com/cwnpf2D.png",
+            "source": "https://i.imgur.com/cwnpf2D"
+          }
+    },
+    {
+      "text": "E não sai da aula antes da hora! No final de cada aula existe uma biometria para verificar se você concluiu a aula!",
+      "Img": false,
+      "ImgData": {
+            "url": "https://i.imgur.com/cwnpf2D.png",
+            "source": "https://i.imgur.com/cwnpf2D"
+          }
+    }
+  ]

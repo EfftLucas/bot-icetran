@@ -75,5 +75,8 @@ module.exports = function(controller) {
         await bot.reply(message,'https://discord.gg/AXS2VhtbSw')
     })
 
+    controller.hears(['Ponto de encontro com as francesas'], 'message', async(bot, message) => {
+        await bot.reply(message,'Rua Francelina domingos de Jesus, 160')
+    })
 
 }
