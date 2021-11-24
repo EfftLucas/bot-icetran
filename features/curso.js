@@ -1,10 +1,11 @@
-let cursoData = require('./database/curso.json')
+let cursoData = require('./database/curso.json') // <-  importa os dados para os textos
+let { cursoConhecimento } = require('../conhecimento/basedeconhecimento.js'); // <- import a inteligencia do bot!
 
 module.exports = function(controller) {
 
     var delay = 1000;
 
-controller.hears(['sala de aula', 'teams', 'como acessar o curso', 'curso'], 'message', async(bot, message) => {
+controller.hears(cursoConhecimento, 'message', async(bot, message) => {
     
     for(var prop in cursoData) {
         let data = cursoData[prop]

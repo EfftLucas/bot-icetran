@@ -1,12 +1,14 @@
 let biometriaData = require('./database/biometria.json')
 let cameraData = require('./database/camera.json')
 
+let { cameraConhecimento , biometriaConhecimento }  = require('../conhecimento/basedeconhecimento.js')
+
 module.exports = function(controller) {
     
     var delayBiometria = 1000;
     var delayCamera = 1000;
 
-    controller.hears(['biometria'], 'message', async(bot, message) => {
+    controller.hears(biometriaConhecimento, 'message', async(bot, message) => {
 
         for(var prop in biometriaData) {
             let data = biometriaData[prop]
@@ -57,7 +59,7 @@ module.exports = function(controller) {
 
     })
 
-    controller.hears(['camera'], 'message', async(bot, message) => {
+    controller.hears(cameraConhecimento, 'message', async(bot, message) => {
 
         for(var prop in cameraData) {
             let data = cameraData[prop]
