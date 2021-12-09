@@ -1,58 +1,47 @@
-let cursoData = require('./database/curso.json') // <-  importa os dados para os textos
-let { cursoConhecimento } = require('../conhecimento/basedeconhecimento.js'); // <- import a inteligencia do bot!
+let cursoData = require("./database/curso.json"); // <-  importa os dados para os textos
+let { cursoConhecimento } = require("../conhecimento/basedeconhecimento.js"); // <- import a inteligencia do bot!
 
-module.exports = function(controller) {
+module.exports = function (controller) {
+  var delay = 1000;
 
-    var delay = 1000;
+  controller.hears(cursoConhecimento, "message", async (bot, message) => {
+    for (var prop in cursoData) {
+      let data = cursoData[prop];
 
-controller.hears(cursoConhecimento, 'message', async(bot, message) => {
-    
-    for(var prop in cursoData) {
-        let data = cursoData[prop]
+      setTimeout(tick, delay);
 
-        setTimeout(tick, delay);
+      async function tick() {
+        await bot.changeContext(message.reference);
 
-        async function tick() {
-           await bot.changeContext(message.reference);
+        if (data.Img === true) {
+          let reply = {
+            text: data.text,
+            files: [
+              {
+                url: data.ImgData.url,
+                image: true,
+                source: data.ImgData.source, // <- Envia link da imagem
+              },
+            ],
+          };
 
-           if (data.Img === true) {
+          await bot.reply(message, reply);
 
-            let reply = {
-                text: data.text,
-                files: [
-                    {
-                       url: data.ImgData.url,
-                       image: true,
-                       source: data.ImgData.source  // <- Envia link da imagem
-                    }
-                ]
-            }          
-    
-            await bot.reply(message, reply);
+          await bot.reply(message, { type: "typing" });
+        } else if (data.Img === false) {
+          await bot.reply(message, data.text);
 
-            await bot.reply(message, { type: 'typing' });
-
-           } else if (data.Img === false){
-
-            await bot.reply(message, data.text);
-
-            await bot.reply(message, { type: 'typing' });
-
-           }
-        
+          await bot.reply(message, { type: "typing" });
         }
-        
+      }
 
-        delay += 2500;
+      delay += 2500;
     }
 
     setTimeout(async () => {
-        await bot.changeContext(message.reference);
-    
-        await bot.reply(message, 'O que posso lhe ajudar agora?');
+      await bot.changeContext(message.reference);
 
-    }, delay + 2500)
-
-})
-
-}
+      await bot.reply(message, "O que posso lhe ajudar agora?");
+    }, delay + 2500);
+  });
+};

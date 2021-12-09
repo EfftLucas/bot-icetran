@@ -1,78 +1,51 @@
-const { BotkitConversation } = require('botkit');
+const { BotkitConversation } = require("botkit");
 
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const fetch = (...args) =>
+  import("node-fetch").then(({ default: fetch }) => fetch(...args));
 
-module.exports = async function(controller) {
+module.exports = async function (controller) {
+  let cepData = "";
 
-    let cepData = '';
+  let cepDialog = new BotkitConversation("cepDialog", controller);
 
-    let cepDialog = new BotkitConversation('cepDialog', controller);
+  cepDialog.ask(
+    "Qual o seu cep?",
+    async (response, convo, bot, full_message) => {},
+    { key: "cep" }
+  );
 
-    cepDialog.ask('Qual o seu cep?', async(response, convo, bot, full_message) => { 
+  cepDialog.after(async (results, bot) => {
+    cepData = results.cep;
+  });
 
-    }, {key: 'cep'});
+  controller.addDialog(cepDialog);
+  // this is a text and example for future dialogs;
+  controller.hears(
+    ["teste"],
+    ["message", "direct_message"],
+    async (bot, message) => {
+      await bot.reply(message, { type: "typing" });
 
-    cepDialog.after(async (results, bot) => {
-        
-        cepData = results.cep;
+      await bot.beginDialog("cepDialog");
 
-    })
-    
-controller.addDialog(cepDialog);
-// this is a text and example for future dialogs;
-controller.hears(['teste'], ['message', 'direct_message'], async(bot, message) => {
-
-    await bot.reply(message, { type: 'typing' });
-
-    await bot.beginDialog('cepDialog');
-
-    
-    const response = await fetch(`https://viacep.com.br/ws/${cepData}/json/`)
-    .then( async (response) => {
-        setTimeout(async () => {
-
+      const response = await fetch(`https://viacep.com.br/ws/${cepData}/json/`)
+        .then(async (response) => {
+          setTimeout(async () => {
             console.log(response);
             await bot.changeContext(message.reference);
 
-            await bot.reply(message, `Seu CEP é ${response.cep}, seu endereço é ${response.logradouro}, seu bairro é ${response.bairro}`)
+            await bot.reply(
+              message,
+              `Seu CEP é ${response.cep}, seu endereço é ${response.logradouro}, seu bairro é ${response.bairro}`
+            );
+          }, 5000);
+        })
+        .catch(async (err) => {
+          console.log(err);
+          await bot.beginDialog("cepDialog");
+        });
 
-        }, 5000)
-    })
-    .catch( async (err) => {
-        console.log(err);
-        await bot.beginDialog('cepDialog')
-    })
-
-    
-    
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*
+      /*
     var offset = 0;
     data1.forEach(async(data) => {
         setTimeout(async () => {
@@ -86,7 +59,7 @@ controller.hears(['teste'], ['message', 'direct_message'], async(bot, message) =
         offset += 1000;
     })
 */
-/*
+      /*
 var delay = 2000
 
     for(var prop in jsonData) {
@@ -135,8 +108,6 @@ var delay = 2000
 
     }, delay + 2500)
    */
-
-
-});
-
-}
+    }
+  );
+};
