@@ -15,7 +15,7 @@
   border: 0;
 }
 #embedded_messenger #message_header {
-  background: #000;
+  background: rgb(59, 48, 130);
   padding: 0.5rem 1rem;
   color: #fff;
   text-align: center;
