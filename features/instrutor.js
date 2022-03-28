@@ -8,7 +8,7 @@ module.exports = function (controller) {
   var delayinstrutorBase = 1000;
 
   controller.hears(instrutorBase, "message", async (bot, message) => {
-    for (var prop in biometriaData) {
+    for (var prop in InstrutorData) {
       let data = InstrutorData[prop];
 
       setTimeout(tick, delayinstrutorBase);
