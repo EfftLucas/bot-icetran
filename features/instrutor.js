@@ -1,14 +1,17 @@
-let cursoData = require("./database/curso.json"); // <-  importa os dados para os textos
-let { cursoConhecimento } = require("../conhecimento/basedeconhecimento.js"); // <- import a inteligencia do bot!
+let InstrutorData = require("./database/appInstrutor.json");
+
+let {
+  instrutorBase
+} = require("../conhecimento/basedeconhecimento.js");
 
 module.exports = function (controller) {
-  var delay = 1000;
+  var delayinstrutorBase = 1000;
 
-  controller.hears(cursoConhecimento, "message", async (bot, message) => {
-    for (var prop in cursoData) {
-      let data = cursoData[prop];
+  controller.hears(instrutorBase, "message", async (bot, message) => {
+    for (var prop in biometriaData) {
+      let data = InstrutorData[prop];
 
-      setTimeout(tick, delay);
+      setTimeout(tick, delayinstrutorBase);
 
       async function tick() {
         await bot.changeContext(message.reference);
@@ -35,13 +38,14 @@ module.exports = function (controller) {
         }
       }
 
-      delay += 2500;
+      delayinstrutorBase += 2500;
     }
 
     setTimeout(async () => {
       await bot.changeContext(message.reference);
 
       await bot.reply(message, "Caso precise de ajudar so digitar Ajuda!");
-    }, delay + 2500);
+    }, delayinstrutorBase + 2500);
   });
+
 };

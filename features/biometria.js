@@ -46,7 +46,7 @@ module.exports = function (controller) {
     setTimeout(async () => {
       await bot.changeContext(message.reference);
 
-      await bot.reply(message, "O que posso lhe ajudar agora?");
+      await bot.reply(message, "Caso precise de ajudar so digitar Ajuda!");
     }, delayBiometria + 2500);
   });
 
@@ -87,7 +87,7 @@ module.exports = function (controller) {
     setTimeout(async () => {
       await bot.changeContext(message.reference);
 
-      await bot.reply(message, "O que posso lhe ajudar agora?");
+      await bot.reply(message, "Caso precise de ajudar so digitar Ajuda!");
     }, delayCamera + 2500);
   });
 };

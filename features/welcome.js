@@ -1,5 +1,6 @@
 const { BotkitConversation } = require("botkit");
 const { TextPrompt, WaterfallDialog } = require("botbuilder-dialogs");
+const WelcomeData = ['Oi', 'Hello', 'tudo bem?', 'preciso de ajuda!','ola', '']
 
 module.exports = function (controller) {
   const ONBOARDING_PROMPT = "onboarding_prompt";
@@ -32,21 +33,17 @@ module.exports = function (controller) {
         payload: "biometria",
       },
       {
+        title: "Instrutor",
+        payload: "instrutor",
+      },
+      {
         title: "Como acessar as aulas",
         payload: "sala de aula",
       },
       {
-        title: "Como acessar Microsoft Teams",
-        payload: "teams",
-      },
-      {
         title: "Habilitar minha Camera",
         payload: "camera",
-      },
-      {
-        title: "Cep?",
-        payload: "cep",
-      },
+      }
     ],
   });
 
@@ -55,31 +52,35 @@ module.exports = function (controller) {
   controller.addDialog(onboarding);
 
   controller.hears(
-    ["hello", "hi", "ola", "oi"],
+    WelcomeData,
     "message",
     async (bot, message) => {
       await bot.beginDialog("onboarding");
       console.log(message.incoming_message.channelData);
     }
   );
+  controller.hears(
+    ['help'],
+    "message",
+    async (bot, message) => {
+      await bot.reply(
+        message,
+        'Para mais informações, entrar em contato com o seu CFC!'
+      )
+    }
+  );
   // Para o fluxo de qualquer dialogo e função
-  controller.interrupts(["help", "ajuda"], "message", async (bot, message) => {
+  controller.interrupts(["ajuda"], "message", async (bot, message) => {
     bot.reply(
       message,
       "Se você está no ICETRAN Aula-Remota, problemas com DETRAN, recomendo que entre em contato com seu CFC, aqui so consigo lhe ajudar, em como navegar na plataforma!"
     );
-    bot.reply(message, "É so clicar em uma das opções aqui!");
-
     await bot.reply(message, {
-      text: "Menu super poderoso!",
+      text: "É so clicar em uma das opções aqui!",
       quick_replies: [
         {
-          title: "Cursos",
+          title: "Como acessar minhas Aulas",
           payload: "Cursos",
-        },
-        {
-          title: "Ambiente Virtual",
-          payload: "AVA",
         },
         {
           title: "Ajuda",
