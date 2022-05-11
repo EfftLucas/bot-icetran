@@ -9,7 +9,8 @@ html {
   padding: 0;
   font-size: 18px;
   background-color: #fff;
-  font-family: "helvetica", sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Sen', sans-serif;
 }
 
 .wrapper {
@@ -131,7 +132,8 @@ a.button:hover {
   /*margin: 2rem auto;*/
   display: flex;
   flex-direction: column;
-  font-family: "helvetica", sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Sen', sans-serif;
 }
 #message_window .disconnected {
   background: #ffffcc;
@@ -180,26 +182,36 @@ a.button:hover {
 }
 #message_window footer {
   border-top: 1px solid #ccc;
-  padding: 0.25rem;
+  padding: 0;
 }
 #message_window footer input[type="text"] {
   flex-grow: 1;
-  font-size: 1.25rem;
+  font-size: 1rem;
   outline: none;
   border: none;
+  padding: 1rem;
+  font-family: 'Roboto', sans-serif;
 }
 #message_window footer button {
+  flex-grow: 1;
+  align-items: center;
   width: 50px;
   background: none;
   border: 0;
   cursor: pointer;
-  color: blue;
+  color: #365B6D;
   font-weight: bold;
+  transition: all 1s;
+  font-family: 'Roboto', sans-serif;
+}
+#message_window footer button:hover {
+  background: #365B6D;
+  color: #fff;
 }
 #message_window form {
   display: flex;
   margin: 0;
-  padding: 0.25rem;
+  height: 40px;
 }
 #message_window #message_template {
   display: none;
@@ -247,7 +259,7 @@ a.button:hover {
 }
 #message_window .message.outgoing {
   float: right;
-  background: #a795ef;
+  background: #365B6D;
   color: white;
 }
 #message_window #message_replies {
@@ -278,7 +290,7 @@ a.button:hover {
   cursor: pointer;
 }
 #message_window #message_replies a:hover {
-  background: #a795ef;
+  background: #365B6D;
   color: #fff;
 }
 

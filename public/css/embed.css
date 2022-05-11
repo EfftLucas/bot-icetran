@@ -5,6 +5,7 @@
   right: 2rem;
   height: 434px;
   transition: 0.5s ease-in-out bottom;
+  border-radius: 5px;
 }
 #embedded_messenger.active {
   bottom: 0;
